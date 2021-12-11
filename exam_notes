@@ -1,0 +1,38 @@
+"""
+                WEB APPLICATIONS
+
+-Webpage communictes w the Webserver
+-Webserver communicates w the Application Server
+-App Server communicates w Database
+
+-when you enter stuff on webpage, it's written in HTML (javascript, CSS, etc.)
+-that info is sent to the Webserver
+-translated on App Server
+-interacts w Database
+
+2 types of Requests
+-GET REQUEST: initially the webpage is loaded, and it's GETTING the info from the database
+    # starts at Database -> sends to Application Server ->
+    # Webserver: translates to python/HTML code -> displays on Webpage
+-POST REQUEST: update info on database; sends info to be POSTED on database
+    # starts when you make an update on your Webpage -> Webserver ->
+    # Application Server -> saved on Database
+
+                DJANGO
+
+-OOP/no SQL (uses dot notation)
+
+-models.py
+    # where we define tables (objects)
+
+-views.py
+    # python code that interacts w/ the HTML(Webpage) and the database
+
+-urls.py
+    # specific location of the Webpages(HTMLs)
+
+-templates.py
+    # 
+
+
+"""
