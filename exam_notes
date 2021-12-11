@@ -32,12 +32,27 @@
     # 
 
 
-MODIFYING THE DATABASE
+                MODIFYING THE DATABASE
 
 2 steps whenever we make a change to the database (models.py)
 1. python3 manage.py makemigrations
 2. python3 manage.py migrate
 
+                MAKING A WEB PAGE
+
+-making a Webpage w Django consists of 3 stages:
+    # 1: defining URLs
+        -gives a page location OR address
+        -in the address, you give which View you want associated w the URl
+        -URL always points to a view
+    # 2: writing views
+        -a python function that interacts w the Database
+        -uses a template to display on browser
+    # 3: writing templates
+        -template is a skeleton that contains all formatting
+        -tog w the template and the view, you can obtain the info
 
 
+
+        
 """
