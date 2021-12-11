@@ -24,15 +24,20 @@
 
 -models.py
     # where we define tables (objects)
-
 -views.py
     # python code that interacts w/ the HTML(Webpage) and the database
-
 -urls.py
     # specific location of the Webpages(HTMLs)
-
 -templates.py
     # 
+
+
+MODIFYING THE DATABASE
+
+2 steps whenever we make a change to the database (models.py)
+1. python3 manage.py makemigrations
+2. python3 manage.py migrate
+
 
 
 """
