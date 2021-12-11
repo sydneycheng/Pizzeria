@@ -9,4 +9,6 @@ app_name = "Pizzeria"
 
 # is a list of individual pages that can be requested from the
 # Pizzeria app
-urlpatterns = [path("", views.index, name="index")]
+urlpatterns = [
+    path("", views.index, name="index"),
+]
