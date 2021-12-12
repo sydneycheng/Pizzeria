@@ -1,7 +1,7 @@
 # this is where we process GET and POST requests!
 
 from django.shortcuts import redirect, render
-from .forms import PizzaForm
+from .forms import PizzaForm, ToppingForm
 from .models import Pizza
 
 # Create your views here.
@@ -56,3 +56,23 @@ def new_pizza(request):
     # display a blank form using the new_pizza.html template
     context = {"form": form}
     return render(request, "pizzas/new_pizza.html", context)
+
+
+def new_topping(request, pizza_id):
+    pizza = Pizza.objects.get(id=pizza_id)
+    if request.method != "POST":
+        form = ToppingForm()
+    else:
+        form = ToppingForm(data=request.POST)
+
+        if form.is_valid():
+            # when we call save(), we include argument (commit=False) to tell Django to create
+            # a new topping object & assign it to new_topping w/o saving it to the DB yet
+            new_topping = form.save(commit=False)
+            # assign the pizza of the new topping based on the pizza we pulled from pizza_id
+            new_topping.pizza = pizza
+            new_topping.save()
+            return redirect("pizzas:pizza", pizza_id=pizza_id)
+
+    context = {"form": form, "pizza": pizza}
+    return render(request, "pizzas/new_topping.html", context)
