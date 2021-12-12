@@ -11,8 +11,9 @@
         must use 'pizzas' bcs this was the KEY we used in the context dictionary (views.py) -->
     {% for p in pizzas %}
 
-    <!-- To print a variable in a template, wrap the variable name in double brackets. -->
-    <li>{{ pizzas }}</li> <!-- li - list item -->
+    <!-- If we wanted to add an attribute (ex:date_added), we could add
+    {{ p.date_added }} -->
+    <li>{{ p }}</li> <!-- li - list item -->
     {% empty %}
     <!-- if the list is empty, then display this msg -->
     <li>No pizzas have been created yet.</li>

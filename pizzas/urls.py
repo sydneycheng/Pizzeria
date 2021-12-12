@@ -12,4 +12,6 @@ app_name = "pizzas"
 urlpatterns = [
     path("", views.index, name="index"),
     path("pizzas", views.pizzas, name="pizzas"),
+    # the view needs an identifier (pizza_id) so it knows which page to load
+    path("pizzas/<int:pizza_id>/", views.pizza, name="pizza"),
 ]
