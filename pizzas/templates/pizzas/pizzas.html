@@ -21,5 +21,7 @@
     <li>No pizzas have been created yet.</li>
     {% endfor %}
 </ul>
+<!-- creates a link in the pizzas.html page so users can add new pizzas of their own -->
+<a href=" {% url 'pizzas:new_pizza' %}">Add a new pizza</a>
 
 {% endblock content %}

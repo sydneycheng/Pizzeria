@@ -1,0 +1,26 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+
+<p>Add a new pizza:</p>
+
+
+
+<!-- define an HTML form.  The action arguemt tells the browser where
+    to send the data submitted in the form -->
+<form action="{% url 'pizzas:new_pizza' %}" method='post'>
+
+    <!-- Django uses this template tage to prevent attackers from using the form to gain
+    unauthorized access to the server -->
+    {% csrf_token %}
+
+    <!-- loads the form up with p tags <p> -->
+    {{ form.as_p }}
+
+    <!-- create a submit button -->
+    <button name="submit">Add pizza</button>
+</form>
+
+
+
+{% endblock content %}
