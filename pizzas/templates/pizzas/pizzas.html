@@ -13,7 +13,9 @@
 
     <!-- If we wanted to add an attribute (ex:date_added), we could add
     {{ p.date_added }} -->
-    <li>{{ p }}</li> <!-- li - list item -->
+    <li>
+        <a href="{% url 'pizzas:pizza' p.id %}">{{ p }}</a>
+    </li> <!-- li - list item -->
     {% empty %}
     <!-- if the list is empty, then display this msg -->
     <li>No pizzas have been created yet.</li>
