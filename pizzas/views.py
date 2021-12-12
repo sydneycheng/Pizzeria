@@ -25,3 +25,6 @@ def pizzas(request):
     # pass the context dictionary to the template (HTML) -- allows it to be rendered to the browser
     # the pizzas.html must match the name of our template
     return render(request, "pizzas/pizzas.html", context)
+
+
+def pizza(request):
