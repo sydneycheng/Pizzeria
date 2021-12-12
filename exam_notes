@@ -77,6 +77,14 @@
 -don't have to write a view (handled by django internally)
     # only need to write a URL and a template 
 
+                    DECORATOR
+
+-is an internal directive placed before a function def that Python applies to the function
+-before it runs, to alter how the function code behaves
+
+-restricts access to certain pages so users can work w only their own data
+-we modify the Pizza model so every pizza belongs to a specific user
+
 
 
 """

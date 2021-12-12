@@ -3,6 +3,7 @@
 from django.shortcuts import redirect, render
 from .forms import PizzaForm, ToppingForm
 from .models import Pizza, Topping
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -14,6 +15,7 @@ def index(request):
     return render(request, "pizzas/index.html")
 
 
+@login_required
 # from urls.py
 def pizzas(request):
     pizzas = Pizza.objects.order_by("date_added")
@@ -27,6 +29,7 @@ def pizzas(request):
     return render(request, "pizzas/pizzas.html", context)
 
 
+@login_required
 # pizza_id used in this views file must match the variable used in urls.py
 def pizza(request, pizza_id):
     # just like we did in MySheell.py
@@ -38,6 +41,7 @@ def pizza(request, pizza_id):
     return render(request, "pizzas/pizza.html", context)
 
 
+@login_required
 def new_pizza(request):
     if request.method != "POST":
         # No data submitted; create a blank form (create an instance of PizzaForm)
@@ -58,6 +62,7 @@ def new_pizza(request):
     return render(request, "pizzas/new_pizza.html", context)
 
 
+@login_required
 def new_topping(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     if request.method != "POST":
@@ -78,6 +83,7 @@ def new_topping(request, pizza_id):
     return render(request, "pizzas/new_topping.html", context)
 
 
+@login_required
 def edit_topping(request, topping_id):
     """Edit an existing topping."""
     topping = Topping.objects.get(id=topping_id)
