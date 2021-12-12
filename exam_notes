@@ -49,10 +49,12 @@
         -a python function that interacts w the Database
         -uses a template to display on browser
         -the view contains the data
+        -create a function in the view
     # 3: writing templates
         -template is a skeleton that contains all formatting
-        -tog w the template and the view, you can obtain the info
 
+    # View and template work tog to upload to the browser
+    # View grabs info from database
 
 
         

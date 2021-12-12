@@ -11,4 +11,5 @@ app_name = "pizzas"
 # Pizzeria app
 urlpatterns = [
     path("", views.index, name="index"),
+    path("pizzas", views.pizzas, name="pizzas"),
 ]
