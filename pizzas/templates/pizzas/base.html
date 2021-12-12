@@ -3,16 +3,15 @@
 <p>
     <a href="{% url 'pizzas:index' %}">Pizzeria</a>
     <a href="{% url 'pizzas:pizzas' %}">Pizzas</a>
-</p>
 
-
-<!-- Login link should only appear if user is not logged in so we use
+    <!-- Login link should only appear if user is not logged in so we use
     an IF clause -->
-{% if user.is_authenticated %}
-Hello, {{ user.username }}.
-{% else %}
-<a href="{% url 'users:login' %}">Log in</a>
-{% endif %}
+    {% if user.is_authenticated %}
+    Hello, {{ user.username }}.
+    <a href="{% url 'users:logout' %}">Log out</a>
+    {% else %}
+    <a href="{% url 'users:login' %}">Log in</a>
+    {% endif %}
 </p>
 
 {% block content %}
