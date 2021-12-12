@@ -56,6 +56,14 @@
     # View and template work tog to upload to the browser
     # View grabs info from database
 
+    TEMPLATES
 
-        
+    # template tags: {%  %}
+        -acts as an if loop
+    # template variables: {{  }}
+        -what we're passing from our View to the Template
+
+
+
+
 """

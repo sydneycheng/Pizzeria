@@ -1,0 +1,22 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+
+<p>Pizzas</p>
+
+<ul>
+
+    <!-- for loop to loop through each pizza
+        NOTE: not like python. Need and endfor
+        must use 'pizzas' bcs this was the KEY we used in the context dictionary (views.py) -->
+    {% for p in pizzas %}
+
+    <!-- To print a variable in a template, wrap the variable name in double brackets. -->
+    <li>{{ pizzas }}</li> <!-- li - list item -->
+    {% empty %}
+    <!-- if the list is empty, then display this msg -->
+    <li>No pizzas have been created yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
