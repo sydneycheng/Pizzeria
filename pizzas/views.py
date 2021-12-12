@@ -92,7 +92,7 @@ def edit_topping(request, topping_id):
         form = ToppingForm(instance=topping, data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect("pizzas:pizza", pizza_id=pizza_id)
+            return redirect("pizzas:pizza", pizza_id=pizza.id)
 
     context = {"topping": topping, "pizza": pizza, "form": form}
     return render(request, "pizzas/edit_topping.html", context)
