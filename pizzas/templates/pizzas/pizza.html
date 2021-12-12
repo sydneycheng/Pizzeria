@@ -7,8 +7,9 @@
 <ul>
     {% for t in toppings %}
     <li>
-        <p>{{t.name}}</p>
-        <p>{{t.date_added}}</p>
+        <!-- a vertical line (|) represents a template filter -->
+        <p>{{ t.name|linebreaks }}</p>
+        <p>{{ t.date_added|date:'M d, Y H:i' }}</p>
     </li>
     {% empty %}
     <li> There are no toppings that have been added to this pizza yet.</li>

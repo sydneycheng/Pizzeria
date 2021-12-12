@@ -14,4 +14,5 @@ urlpatterns = [
     path("pizzas", views.pizzas, name="pizzas"),
     # the view needs an identifier (pizza_id) so it knows which page to load
     path("pizzas/<int:pizza_id>/", views.pizza, name="pizza"),
+    path("new_pizza/", views.new_pizza, name="new_pizza"),
 ]

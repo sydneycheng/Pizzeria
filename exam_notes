@@ -64,6 +64,16 @@
         -what we're passing from our View to the Template
 
 
+                    FORMS
+
+-allow 2 way interaction so we can receive input from any user
+-they can be dangerous, so we need security & authentication
+    # we want to prevent SQL injections
+    # django forms have built in functions that help protect against SQL injections
+-are similar to pages -- define a URL, view, & template
+
+
+
 
 
 """
