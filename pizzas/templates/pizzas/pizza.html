@@ -20,4 +20,8 @@
     <a href="{% url 'pizzas:new_topping' pizza.id %}">Add a new topping</a>
 </p>
 
+<p>
+    <a href="{% url 'pizzas:edit_topping' topping.id %}">Edit topping</a>
+</p>
+
 {% endblock content %}
