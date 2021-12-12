@@ -1,0 +1,21 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+
+<!-- includes the pizza_id value in the URL, so the view function can associate
+    th enew topping w/ the correct pizza -->
+<p><a href="{% url 'pizzas:pizza' pizza.id %}">{{ pizza }}</a></p>
+
+<p>Add a new topping:</p>
+
+<form action="{% url 'pizzas:new_topping' pizza_id %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <!-- create a submit button -->
+    <button name="submit">Add topping</button>
+</form>
+
+
+
+{% endblock content %}
