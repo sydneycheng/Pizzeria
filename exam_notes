@@ -48,6 +48,7 @@
     # 2: writing views
         -a python function that interacts w the Database
         -uses a template to display on browser
+        -the view contains the data
     # 3: writing templates
         -template is a skeleton that contains all formatting
         -tog w the template and the view, you can obtain the info
