@@ -7,6 +7,6 @@ from django.shortcuts import render
 
 
 def index(request):
-    """The home page for Pizzeria."""
+    """The home page for pizzas."""
     # the View must point to a Template
-    return render(request, "Pizzeria/index.html")
+    return render(request, "pizzas/index.html")

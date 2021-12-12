@@ -6,6 +6,7 @@ import django
 
 django.setup()
 
+
 from pizzas.models import Pizza, Topping
 
 # get all pizzas from the Pizza model
@@ -17,8 +18,8 @@ for pizza in pizzas:
     print(pizza.date_added)
 
 p = Pizza.objects.get(id=1)
-print(p.name)
-print(p.date_added)
+print(p)
+
 
 toppings = p.topping_set.all()
 

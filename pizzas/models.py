@@ -24,4 +24,4 @@ class Topping(models.Model):
         verbose_name_plural = "Toppings"
 
     def __str__(self):
-        return f"{self.name[:50]}"
+        return f"{self.name[:50]}..."
