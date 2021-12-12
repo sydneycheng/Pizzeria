@@ -5,6 +5,16 @@
     <a href="{% url 'pizzas:pizzas' %}">Pizzas</a>
 </p>
 
+
+<!-- Login link should only appear if user is not logged in so we use
+    an IF clause -->
+{% if user.is_authenticated %}
+Hello, {{ user.username }}.
+{% else %}
+<a href="{% url 'users:login' %}">Log in</a>
+{% endif %}
+</p>
+
 {% block content %}
 
 
