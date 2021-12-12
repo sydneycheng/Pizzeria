@@ -34,5 +34,5 @@ def pizza(request, pizza_id):
     # FK can be accessed using '_set'
     toppings = pizza.topping_set.all()
 
-    context = {"pizzas": pizzas, "toppings": toppings}
+    context = {"pizza": pizza, "toppings": toppings}
     return render(request, "pizzas/pizza.html", context)
