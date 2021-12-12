@@ -9,14 +9,14 @@
     <!-- a vertical line (|) represents a template filter -->
     <p>{{ t.name|linebreaks }}</p>
     <p>{{ t.date_added|date:'M d, Y H:i' }}</p>
-
     <p>
-        <a href="{% url 'pizzas:edit_topping' topping.id %}">Edit topping</a>
+        <a href="{% url 'pizzas:edit_topping' t.id %}">Edit topping</a>
     </p>
-
 </li>
 {% empty %}
 <li> There are no toppings that have been added to this pizza yet.</li>
+
+
 {% endfor %}
 
 <p>

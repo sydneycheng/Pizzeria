@@ -8,7 +8,7 @@
 
 <form action="{% url 'pizzas:edit_topping' topping.id %}" method='post'>
     {% csrf_token %}
-    {{ form.as_p }}
+    {{form.as_p}}
 
     <!-- create a submit button -->
     <button name="submit">Save changes</button>
