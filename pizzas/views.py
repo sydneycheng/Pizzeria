@@ -18,7 +18,7 @@ def index(request):
 @login_required
 # from urls.py
 def pizzas(request):
-    pizzas = Pizza.objects.order_by("date_added")
+    pizzas = Pizza.objects.filter(owner=request.user).order_by("date_added")
     # Key is the name of the variable we'll use in the template (HTML)
     ## allows us to access the data
     # Value is the variable used in the view function

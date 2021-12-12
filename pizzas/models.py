@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -7,6 +8,7 @@ class Pizza(models.Model):
     name = models.CharField(max_length=200)
     # auto_now_add=True - set this attribute to the current date and time
     date_added = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # Allows the "name" of the Pizza to be displayed
     def __str__(self):

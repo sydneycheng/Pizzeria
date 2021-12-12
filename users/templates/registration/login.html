@@ -9,7 +9,7 @@
 
 <!-- Set the action argument as the URL of the login page -->
 <form action="{% url 'users:login' %}" method='post'>
-    {% csrf_toaken %}
+    {% csrf_token %}
     {{ form.as_p }}
 
     <button name="submit">Log in</button>
