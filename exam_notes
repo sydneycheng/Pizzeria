@@ -88,6 +88,8 @@
 -restricts access to certain pages so users can work w only their own data
 -we modify the Pizza model so every pizza belongs to a specific user
 
+-we use Http404 to make sure the pizza belongs to the current user
+
 
 
 """

@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from .forms import PizzaForm, ToppingForm
 from .models import Pizza, Topping
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
 
 # Create your views here.
 
@@ -32,8 +33,11 @@ def pizzas(request):
 @login_required
 # pizza_id used in this views file must match the variable used in urls.py
 def pizza(request, pizza_id):
-    # just like we did in MySheell.py
+    # just like we did in MyShell.py
     pizza = Pizza.objects.get(id=pizza_id)
+    # Make sure the pizza belongs to the current user.
+    if pizza.owner != request.user:
+        raise Http404
     # FK can be accessed using '_set'
     toppings = pizza.topping_set.all()
 
@@ -54,6 +58,9 @@ def new_pizza(request):
         # data for the form is pulling from what the user has already posted
         form = PizzaForm(data=request.POST)
         if form.is_valid():
+            new_pizza = form.save(commit=False)
+            new_pizza.owner = request.user
+            new_pizza.save()
             form.save()
 
             return redirect("pizzas:pizzas")
@@ -88,6 +95,9 @@ def edit_topping(request, topping_id):
     """Edit an existing topping."""
     topping = Topping.objects.get(id=topping_id)
     pizza = topping.pizza
+
+    if pizza.owner != request.user:
+        raise Http404
 
     if request.method != "POST":
         # This tells Django to create the form prefilled
