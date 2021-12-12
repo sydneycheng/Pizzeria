@@ -5,7 +5,7 @@
 
 <!-- Set the action argument as the URL of the login page -->
 <form action="{% url 'users:register' %}" method='post'>
-    {% csrf_toaken %}
+    {% csrf_token %}
     {{ form.as_p }}
 
     <button name="submit">Register</button>
@@ -13,7 +13,5 @@
             tells Django where to redirect the user after they've logged in successfully -->
     <input type="hidden" name="next" value="{% url 'pizzas:index' %}" />
 </form>
-
-
 
 {% endblock content %}
