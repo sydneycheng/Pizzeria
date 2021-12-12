@@ -72,7 +72,10 @@
     # django forms have built in functions that help protect against SQL injections
 -are similar to pages -- define a URL, view, & template
 
+                    USERS App
 
+-don't have to write a view (handled by django internally)
+    # only need to write a URL and a template 
 
 
 
