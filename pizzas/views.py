@@ -27,4 +27,12 @@ def pizzas(request):
     return render(request, "pizzas/pizzas.html", context)
 
 
-def pizza(request):
+# pizza_id used in this views file must match the variable used in urls.py
+def pizza(request, pizza_id):
+    # just like we did in MySheell.py
+    pizza = Pizza.objects.get(id=pizza_id)
+    # FK can be accessed using '_set'
+    toppings = pizza.topping_set.all()
+
+    context = {"pizzas": pizzas, "toppings": toppings}
+    return render(request, "pizzas/pizza.html", context)
