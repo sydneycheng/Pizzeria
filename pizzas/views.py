@@ -2,7 +2,7 @@
 
 from django.shortcuts import redirect, render
 from .forms import PizzaForm, ToppingForm, CommentForm
-from .models import Pizza, Topping, Comment
+from .models import Pizza, Comment, Topping
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
@@ -40,6 +40,7 @@ def pizza(request, pizza_id):
         raise Http404
     # FK can be accessed using '_set'
     toppings = pizza.topping_set.all()
+    comments = pizza.comment_set.order_by("-date_added")
 
     context = {"pizza": pizza, "toppings": toppings}
     return render(request, "pizzas/pizza.html", context)
