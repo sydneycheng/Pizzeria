@@ -4,16 +4,53 @@
 <h3>{{ pizza }}</h3>
 {% endblock page_header %}
 
+
 {% block content %}
-<!-- 
-<p>
-    <a href="{% url 'pizzas:new_topping' pizza.id %}">Add a comment</a>
-</p> -->
 
+<p>Pizza: {{ pizza.name }}</p>
+<ul>
+    {% for t in toppings %}
+    <li>
+        <p>{{ t.name|linebreaks }}</p>
 
+        <a href="{% url 'pizzas:edit_topping' t.id %}">Edit topping</a>
+
+    </li>
+    {% empty %}
+    <li> You have not added any toppings on this pizza yet.</li>
+    {% endfor %}
+
+</ul>
 <p><a href="{% url 'pizzas:new_topping' pizza.id %}">Add a new topping</a></p>
+<ul>
 
-{% for t in toppings %}
+    {% for comment in comments %}
+    <li>
+        <p> {{ comment.name|linebreaks }}</p>
+    </li>
+    {% empty %}
+
+    <li>No comments have been added for this pizza yet.</li>
+    {% endfor %}
+
+</ul>
+
+<p>
+    <a href={% url 'pizzas:new_comment' pizza.id %}">Add a new comment</a>"
+</p>
+
+<P>
+
+    <img src="https://pngimg.com/upload/pizza/pizza_PNG7142.png" alt="Pizza">
+
+</P>
+{% endblock content %}
+
+
+
+
+<!-- 
+
 <div class="card mb-3">
     <h4 class="card-header">
         {{ t.date_added|date:'M d, Y H:i' }}
@@ -24,7 +61,15 @@
     </div>
 </div>
 {% empty %}
-<li> You have not added any toppings on this pizza.</li>
+<li> You have not added any toppings on this pizza yet.</li>
 {% endfor %}
 
-{% endblock content %}
+<p><a href="{% url 'pizzas:new_topping' pizza.id %}">Add a new topping</a></p>
+
+<ul>
+
+    {% for comment in comments %} 
+</ul>
+
+
+{% endblock content %} -->
