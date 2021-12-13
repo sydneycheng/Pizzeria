@@ -6,14 +6,14 @@
     th enew topping w/ the correct pizza -->
 <p><a href="{% url 'pizzas:pizza' pizza.id %}">{{ pizza }}</a></p>
 
-<p>Add a new topping:</p>
+<p>Add a new comment:</p>
 
-<form action="{% url 'pizzas:new_topping' pizza.id %}" method='post'>
+<form action="{% url 'pizzas:new_comment' pizza.id %}" method='post'>
     {% csrf_token %}
     {{ form.as_p }}
 
     <!-- create a submit button -->
-    <button name="submit">Add topping</button>
+    <button name="submit">Add a comment</button>
 </form>
 
 
