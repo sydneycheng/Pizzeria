@@ -5,10 +5,13 @@
 {% endblock page_header %}
 
 {% block content %}
-
+<!-- 
 <p>
-    <a href="{% url 'pizzas:new_topping' pizza.id %}">Add a new topping</a>
-</p>
+    <a href="{% url 'pizzas:new_topping' pizza.id %}">Add a comment</a>
+</p> -->
+
+
+<p><a href="{% url 'pizzas:new_topping' pizza.id %}">Add a new topping</a></p>
 
 {% for t in toppings %}
 <div class="card mb-3">
@@ -21,7 +24,7 @@
     </div>
 </div>
 {% empty %}
-<li> There are no toppings that have been added to this pizza yet.</li>
+<li> You have not added any toppings on this pizza.</li>
 {% endfor %}
 
 {% endblock content %}
