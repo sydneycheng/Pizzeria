@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Pizza, Topping
+from .models import Comment, Pizza, Topping
 
 # define a class called PizzaForm, which inherits from forms.ModelForm
 class PizzaForm(forms.ModelForm):
@@ -12,8 +12,8 @@ class PizzaForm(forms.ModelForm):
         labels = {"name": ""}
 
 
-class ToppingForm(forms.ModelForm):
+class CommentForm(forms.ModelForm):
     class Meta:
-        model = Topping
-        fields = ["name"]
-        labels = {"name": ""}
+        model = Comment
+        fields = ["text"]
+        labels = {"text": ""}

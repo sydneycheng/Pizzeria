@@ -27,3 +27,11 @@ class Topping(models.Model):
 
     def __str__(self):
         return f"{self.name[:50]}..."
+
+
+class Comment(models.Model):
+    text = models.CharField(max_length=500)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.text
