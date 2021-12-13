@@ -70,24 +70,24 @@ def new_pizza(request):
 
 
 @login_required
-def new_topping(request, pizza_id):
+def new_comment(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     if request.method != "POST":
-        form = ToppingForm()
+        form = CommentForm()
     else:
-        form = ToppingForm(data=request.POST)
+        form = CommentForm(data=request.POST)
 
         if form.is_valid():
             # when we call save(), we include argument (commit=False) to tell Django to create
             # a new topping object & assign it to new_topping w/o saving it to the DB yet
-            new_topping = form.save(commit=False)
+            new_comment = form.save(commit=False)
             # assign the pizza of the new topping based on the pizza we pulled from pizza_id
-            new_topping.pizza = pizza
-            new_topping.save()
+            new_comment.pizza = pizza
+            new_comment.save()
             return redirect("pizzas:pizza", pizza_id=pizza_id)
 
     context = {"form": form, "pizza": pizza}
-    return render(request, "pizzas/new_topping.html", context)
+    return render(request, "pizzas/new_comment.html", context)
 
 
 @login_required
