@@ -1,7 +1,7 @@
 {% extends "pizzas/base.html" %}
 
 {% block page_header %}
-<h3>{{ pizza ))</h3>
+<h3>{{ pizza }}</h3>
 {% endblock page_header %}
 
 {% block content %}
@@ -16,7 +16,7 @@
         {{ t.date_added|date:'M d, Y H:i' }}
         <small><a href="{% url 'pizzas:edit_topping' t.id %}">Edit topping</a></small>
     </h4>
-    <div vlass="card-body">
+    <div class="card-body">
         {{ t.name|linebreaks }}
     </div>
 </div>
