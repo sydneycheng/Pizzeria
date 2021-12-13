@@ -42,7 +42,7 @@ def pizza(request, pizza_id):
     toppings = pizza.topping_set.all()
     comments = pizza.comment_set.order_by("-date_added")
 
-    context = {"pizza": pizza, "toppings": toppings}
+    context = {"pizza": pizza, "toppings": toppings, "comments": comments}
     return render(request, "pizzas/pizza.html", context)
 
 
