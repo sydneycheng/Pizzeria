@@ -9,19 +9,24 @@
 
 <p>Pizza: {{ pizza.name }}</p>
 <ul>
-    {% for t in toppings %}
+    {% for topping in toppings %}
     <li>
-        <p>{{ t.name|linebreaks }}</p>
+        <p>{{ topping.name|linebreaks }}</p>
 
-        <a href="{% url 'pizzas:edit_topping' t.id %}">Edit topping</a>
-
+        <p>
+            <a href="{% url 'pizzas:edit_topping' topping.id %}">Edit topping</a>
+        </p>
     </li>
     {% empty %}
-    <li> You have not added any toppings on this pizza yet.</li>
+
+    <li>No toppings for this pizza have been added yet.</li>
+
     {% endfor %}
 
 </ul>
-<p><a href="{% url 'pizzas:new_topping' pizza.id %}">Add a new topping</a></p>
+<p>
+    <a href="{% url 'pizzas:new_topping' pizza.id %}">Add a new topping</a>
+</p>
 <ul>
 
     {% for comment in comments %}
@@ -30,46 +35,22 @@
     </li>
     {% empty %}
 
-    <li>No comments have been added for this pizza yet.</li>
+    <li>No comments for this pizza have been added yet.</li>
+
     {% endfor %}
+
+    </li>
 
 </ul>
 
 <p>
-    <a href={% url 'pizzas:new_comment' pizza.id %}">Add a new comment</a>"
+    <a href="{% url 'pizzas:new_comment' pizza.id %}">Add a new comment</a>
 </p>
 
 <P>
 
-    <img src="https://pngimg.com/upload/pizza/pizza_PNG7142.png" alt="Pizza">
+    <img src="https://pngimg.com/uploads/pizza/pizza_PNG7142.png" alt="Pizza">
+
 
 </P>
 {% endblock content %}
-
-
-
-
-<!-- 
-
-<div class="card mb-3">
-    <h4 class="card-header">
-        {{ t.date_added|date:'M d, Y H:i' }}
-        <small><a href="{% url 'pizzas:edit_topping' t.id %}">Edit topping</a></small>
-    </h4>
-    <div class="card-body">
-        {{ t.name|linebreaks }}
-    </div>
-</div>
-{% empty %}
-<li> You have not added any toppings on this pizza yet.</li>
-{% endfor %}
-
-<p><a href="{% url 'pizzas:new_topping' pizza.id %}">Add a new topping</a></p>
-
-<ul>
-
-    {% for comment in comments %} 
-</ul>
-
-
-{% endblock content %} -->

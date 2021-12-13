@@ -22,5 +22,5 @@ class ToppingForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ["text"]
-        labels = {"text": ""}
+        fields = ["name"]
+        labels = {"name": ""}

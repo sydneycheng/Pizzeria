@@ -1,5 +1,4 @@
 from django.urls import path
-
 from . import views
 
 # app_name helps django distinguish this urls.py file from files

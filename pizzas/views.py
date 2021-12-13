@@ -2,7 +2,7 @@
 
 from django.shortcuts import redirect, render
 from .forms import PizzaForm, ToppingForm, CommentForm
-from .models import Pizza, Topping
+from .models import Pizza, Topping, Comment
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
@@ -99,6 +99,8 @@ def new_comment(request, pizza_id):
         form = CommentForm(data=request.POST)
 
         if form.is_valid():
+            # when we call save(), we include argument (commit=False) to tell Django to create
+            # a new topping object & assign it to new_topping w/o saving it to the DB yet
             new_comment = form.save(commit=False)
             # assign the pizza of the new topping based on the pizza we pulled from pizza_id
             new_comment.pizza = pizza
