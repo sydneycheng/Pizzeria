@@ -1,27 +1,36 @@
 {% extends "pizzas/base.html" %}
 
+{% block page_header %}
+<h1>Pizzas</h1>
+{% endblock page_header %}
+
+
 {% block content %}
 
-<p>Pizzas</p>
-
 <ul>
-
     <!-- for loop to loop through each pizza
         NOTE: not like python. Need and endfor
         must use 'pizzas' bcs this was the KEY we used in the context dictionary (views.py) -->
     {% for p in pizzas %}
-
-    <!-- If we wanted to add an attribute (ex:date_added), we could add
+    <li>
+        <h3>
+            <!-- If we wanted to add an attribute (ex:date_added), we could add
     {{ p.date_added }} -->
     <li>
         <a href="{% url 'pizzas:pizza' p.id %}">{{ p }}</a>
     </li> <!-- li - list item -->
+    </h3>
+    </li>
+
+
     {% empty %}
     <!-- if the list is empty, then display this msg -->
-    <li>No pizzas have been created yet.</li>
+    <li>
+        <h3>No pizzas have been created yet.</h3>
+    </li>
     {% endfor %}
 </ul>
 <!-- creates a link in the pizzas.html page so users can add new pizzas of their own -->
-<a href=" {% url 'pizzas:new_pizza' %}">Add a new pizza</a>
+<h3><a href=" {% url 'pizzas:new_pizza' %}">Add a new pizza</a></h3>
 
 {% endblock content %}
