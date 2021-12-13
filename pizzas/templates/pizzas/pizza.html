@@ -1,27 +1,27 @@
 {% extends "pizzas/base.html" %}
 
+{% block page_header %}
+<h3>{{ pizza ))</h3>
+{% endblock page_header %}
+
 {% block content %}
-
-<p>Pizza: {{ pizza }}</p>
-
-{% for t in toppings %}
-<li>
-    <!-- a vertical line (|) represents a template filter -->
-    <p>{{ t.name|linebreaks }}</p>
-    <p>{{ t.date_added|date:'M d, Y H:i' }}</p>
-    <p>
-        <a href="{% url 'pizzas:edit_topping' t.id %}">Edit topping</a>
-    </p>
-</li>
-{% empty %}
-<li> There are no toppings that have been added to this pizza yet.</li>
-
-
-{% endfor %}
 
 <p>
     <a href="{% url 'pizzas:new_topping' pizza.id %}">Add a new topping</a>
 </p>
 
+{% for t in toppings %}
+<div class="card mb-3">
+    <h4 class="card-header">
+        {{ t.date_added|date:'M d, Y H:i' }}
+        <small><a href="{% url 'pizzas:edit_topping' t.id %}">Edit topping</a></small>
+    </h4>
+    <div vlass="card-body">
+        {{ t.name|linebreaks }}
+    </div>
+</div>
+{% empty %}
+<li> There are no toppings that have been added to this pizza yet.</li>
+{% endfor %}
 
 {% endblock content %}
