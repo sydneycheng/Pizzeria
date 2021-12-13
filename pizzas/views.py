@@ -1,8 +1,8 @@
 # this is where we process GET and POST requests!
 
 from django.shortcuts import redirect, render
-from .forms import PizzaForm, CommentForm
-from .models import Pizza, Topping
+from .forms import PizzaForm, ToppingForm, CommentForm
+from .models import Pizza, Topping, Comment
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
