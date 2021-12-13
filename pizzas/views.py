@@ -1,7 +1,7 @@
 # this is where we process GET and POST requests!
 
 from django.shortcuts import redirect, render
-from .forms import PizzaForm, ToppingForm
+from .forms import PizzaForm, ToppingForm, CommentForm
 from .models import Pizza, Topping
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
@@ -90,25 +90,23 @@ def new_topping(request, pizza_id):
     return render(request, "pizzas/new_topping.html", context)
 
 
-# @login_required
-# def new_comment(request, pizza_id):
-#     pizza = Pizza.objects.get(id=pizza_id)
-#     if request.method != "POST":
-#         form = CommentForm()
-#     else:
-#         form = CommentForm(data=request.POST)
+@login_required
+def new_comment(request, pizza_id):
+    pizza = Pizza.objects.get(id=pizza_id)
+    if request.method != "POST":
+        form = CommentForm()
+    else:
+        form = CommentForm(data=request.POST)
 
-#         if form.is_valid():
-#             # when we call save(), we include argument (commit=False) to tell Django to create
-#             # a new topping object & assign it to new_topping w/o saving it to the DB yet
-#             new_comment = form.save(commit=False)
-#             # assign the pizza of the new topping based on the pizza we pulled from pizza_id
-#             new_comment.pizza = pizza
-#             new_comment.save()
-#             return redirect("pizzas:pizza", pizza_id=pizza_id)
+        if form.is_valid():
+            new_comment = form.save(commit=False)
+            # assign the pizza of the new topping based on the pizza we pulled from pizza_id
+            new_comment.pizza = pizza
+            new_comment.save()
+            return redirect("pizzas:pizza", pizza_id=pizza_id)
 
-#     context = {"form": form, "pizza": pizza}
-#     return render(request, "pizzas/new_comment.html", context)
+    context = {"form": form, "pizza": pizza}
+    return render(request, "pizzas/new_comment.html", context)
 
 
 @login_required
