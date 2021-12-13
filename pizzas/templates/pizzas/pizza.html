@@ -7,7 +7,7 @@
 {% block content %}
 
 <p>
-    <a href="{% url 'pizzas:new_comment' pizza.id %}">Add a new comment</a>
+    <a href="{% url 'pizzas:new_topping' pizza.id %}">Add a new topping</a>
 </p>
 
 {% for t in toppings %}

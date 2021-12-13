@@ -12,6 +12,13 @@ class PizzaForm(forms.ModelForm):
         labels = {"name": ""}
 
 
+class ToppingForm(forms.ModelForm):
+    class Meta:
+        model = Topping
+        fields = ["text"]
+        labels = {"text": ""}
+
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
