@@ -15,8 +15,8 @@ class PizzaForm(forms.ModelForm):
 class ToppingForm(forms.ModelForm):
     class Meta:
         model = Topping
-        fields = ["text"]
-        labels = {"text": ""}
+        fields = ["name"]
+        labels = {"name": ""}
 
 
 class CommentForm(forms.ModelForm):
